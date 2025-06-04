@@ -44,12 +44,9 @@ header {
 #themeToggle {
   background: transparent;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   color: inherit;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
 }
 
 .intro .ip-box {
@@ -87,14 +84,13 @@ body.dark .intro .ip-box {
 .rank {
   background: var(--card-light);
   border-radius: 12px;
-  padding: 1rem 1rem;
+  padding: 1.2rem 1rem;
   cursor: pointer;
   text-align: center;
-  transition: all 0.3s ease;
-  min-height: 110px;
+  transition: all 0.3s ease, border-color 0.3s ease;
+  min-height: 100px;
   font-size: 1rem;
-  border: none; /* پیش‌فرض بدون فریم */
-  box-sizing: border-box;
+  border: 2px solid transparent;
 }
 body.dark .rank {
   background: var(--card-dark);
@@ -106,16 +102,19 @@ body.dark .rank {
   margin-bottom: 0.3rem;
 }
 
-.rank.open .rank-details {
-  max-height: 150px;
-  opacity: 1;
-  padding-top: 0.5rem;
+.rank.open {
+  border-color: var(--accent);
 }
+
 .rank-details {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
+  transition: all 0.4s ease;
+}
+.rank.open .rank-details {
+  max-height: 150px;
+  opacity: 1;
 }
 
 .claim-toggle {
@@ -148,6 +147,7 @@ body.dark .rank {
   gap: 1rem;
   margin-top: 1rem;
 }
+
 @media (max-width: 600px) {
   .claim-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -160,17 +160,19 @@ body.dark .rank {
   padding: 1.2rem;
   position: relative;
   text-align: center;
-  cursor: default;
-  transition: border-color 0.8s ease;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
   border: 2px solid transparent;
-  font-size: 1.05rem;
+  font-size: 1rem;
+  font-weight: 600;
+  user-select: none;
 }
 body.dark .claim-item {
   background: var(--card-dark);
 }
 
 .claim-item:hover {
-  border: 2px solid;
+  border-color: var(--accent);
   animation: rgbBorder 3s linear infinite;
 }
 
@@ -194,16 +196,14 @@ body.dark .claim-item {
   margin-top: 0.5rem;
   background: var(--accent);
   color: white;
-  padding: 0.5rem;
+  padding: 0.4rem;
   border-radius: 8px;
   text-decoration: none;
-  font-size: 0.9rem;
 }
 .buy-text {
   margin-top: 2rem;
   font-weight: bold;
   font-size: 1.1rem;
-  text-align: center;
 }
 
 footer {
@@ -213,4 +213,21 @@ footer {
   color: #777;
 }
 
-/* انیمیشن ملایم تغییر رنگ فریم RGB
+/* انیمیشن ملایم تغییر رنگ فریم RGB */
+@keyframes rgbBorder {
+  0% {
+    border-color: rgb(0, 0, 255);
+  }
+  25% {
+    border-color: rgb(255, 0, 0);
+  }
+  50% {
+    border-color: rgb(0, 255, 0);
+  }
+  75% {
+    border-color: rgb(255, 255, 0);
+  }
+  100% {
+    border-color: rgb(0, 0, 255);
+  }
+}
