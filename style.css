@@ -44,9 +44,10 @@ header {
 #themeToggle {
   background: transparent;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   color: inherit;
+  padding: 0.4rem 0.8rem;
 }
 
 .intro .ip-box {
@@ -84,13 +85,16 @@ body.dark .intro .ip-box {
 .rank {
   background: var(--card-light);
   border-radius: 12px;
-  padding: 1.2rem 1rem;
+  padding: 1.2rem;
   cursor: pointer;
   text-align: center;
-  transition: all 0.3s ease, border-color 0.3s ease;
+  transition: all 0.4s ease;
   min-height: 100px;
   font-size: 1rem;
   border: 2px solid transparent;
+}
+.rank.open {
+  border-color: var(--accent);
 }
 body.dark .rank {
   background: var(--card-dark);
@@ -102,19 +106,16 @@ body.dark .rank {
   margin-bottom: 0.3rem;
 }
 
-.rank.open {
-  border-color: var(--accent);
+.rank.open .rank-details {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 0.5rem;
 }
-
 .rank-details {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: all 0.4s ease;
-}
-.rank.open .rank-details {
-  max-height: 150px;
-  opacity: 1;
+  transition: all 0.6s ease;
 }
 
 .claim-toggle {
@@ -143,29 +144,21 @@ body.dark .rank {
 
 .claim-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
 
-@media (max-width: 600px) {
-  .claim-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 .claim-item {
   background: var(--card-light);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 1.2rem;
   position: relative;
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.3s ease;
+  transition: border 0.3s ease;
   border: 2px solid transparent;
   font-size: 1rem;
-  font-weight: 600;
-  user-select: none;
 }
 body.dark .claim-item {
   background: var(--card-dark);
@@ -173,7 +166,7 @@ body.dark .claim-item {
 
 .claim-item:hover {
   border-color: var(--accent);
-  animation: rgbBorder 3s linear infinite;
+  animation: none !important; /* حذف انیمیشن rgb */
 }
 
 .claim-info {
@@ -196,7 +189,7 @@ body.dark .claim-item {
   margin-top: 0.5rem;
   background: var(--accent);
   color: white;
-  padding: 0.4rem;
+  padding: 0.5rem 0.8rem;
   border-radius: 8px;
   text-decoration: none;
 }
@@ -213,21 +206,23 @@ footer {
   color: #777;
 }
 
-/* انیمیشن ملایم تغییر رنگ فریم RGB */
-@keyframes rgbBorder {
-  0% {
-    border-color: rgb(0, 0, 255);
+/* حذف انیمیشن rgb هنگام خروج ماوس */
+.claim-item {
+  animation: none !important;
+}
+
+/* حالت موبایل */
+@media (max-width: 600px) {
+  .rank-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  25% {
-    border-color: rgb(255, 0, 0);
+
+  .claim-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  50% {
-    border-color: rgb(0, 255, 0);
-  }
-  75% {
-    border-color: rgb(255, 255, 0);
-  }
-  100% {
-    border-color: rgb(0, 0, 255);
+
+  #themeToggle {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
   }
 }
