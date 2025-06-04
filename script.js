@@ -23,19 +23,17 @@ function toggleClaim() {
   detail.classList.toggle("open");
 }
 
-// حذف فعال شدن کلیم‌ها با کلیک، فقط واکنش ماوس روی آنها هست
-document.querySelectorAll(".claim-item").forEach(item => {
-  item.addEventListener("mouseenter", () => {
-    item.style.borderColor = ""; // پاک کردن برای انیمیشن CSS
-    item.style.animation = "rgbBorder 1s linear infinite"; // فعال کردن انیمیشن با سرعت 3 برابر (1s)
+// حذف فعال شدن کلیک روی آیتم‌های کلیم (فقط هاور باید کار کند)
+// و خاموش شدن سریع انیمیشن وقتی موس از روی گزینه میره
+document.querySelectorAll('.claim-item').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    // فقط هاور CSS اعمال میشه
   });
-  item.addEventListener("mouseleave", () => {
-    item.style.animation = "none"; // متوقف کردن انیمیشن سریع بلافاصله
-    item.style.borderColor = "transparent"; // پاک کردن فریم
+  item.addEventListener('mouseleave', () => {
+    // خاموش کردن فوری انیمیشن فریم رنگی
+    item.style.animation = 'none';
+    setTimeout(() => {
+      item.style.animation = '';
+    }, 10);
   });
-});
-
-// اضافه کردن "رنک " قبل نام رنک‌ها
-document.querySelectorAll('.rank .rank-title').forEach(title => {
-  title.textContent = "رنک " + title.textContent;
 });
