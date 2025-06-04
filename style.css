@@ -74,152 +74,49 @@ body.dark .intro .ip-box {
   background: #e64a19;
 }
 
+/* رنک‌ها - چیدمان 2 در 2 */
 .rank-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 در 2 چیدمان */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
   gap: 1rem;
   margin-top: 1rem;
 }
 
+/* ارتفاع عمودی نصف شد */
 .rank {
   background: var(--card-light);
   border-radius: 12px;
-  padding: 1rem 1rem; /* نصف ارتفاع قبلی */
+  padding: 0.5rem 1rem; /* نصف ارتفاع قبلی */
   cursor: pointer;
   text-align: center;
   transition: all 0.3s ease;
-  min-height: 90px; /* نصف ارتفاع قبلی */
+  min-height: 45px; /* نصف ارتفاع قبلی */
   font-size: 0.9rem;
+  position: relative;
 }
 body.dark .rank {
   background: var(--card-dark);
 }
 
+/* بزرگ‌تر شدن کلمات MVP, VIP, ELITE, LEGEND */
 .rank-title {
   font-weight: 700;
-  font-size: 1.8rem; /* بزرگتر کردن کلمات MVP و غیره */
+  font-size: 2rem; /* بزرگ‌تر */
   margin-bottom: 0.3rem;
-}
-
-.rank.open .rank-details {
-  max-height: 150px;
-  opacity: 1;
-}
-.rank-details {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.4s ease;
-}
-
-.claim-toggle {
-  background: var(--accent);
-  color: white;
-  font-size: 1.2rem;
-  padding: 1.2rem;
-  border-radius: 14px;
-  margin: 2rem 0 1rem;
-  text-align: center;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.claim-details {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.5s ease;
-}
-.claim-details.open {
-  max-height: 2000px;
-  opacity: 1;
-}
-
-.claim-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.claim-item {
-  background: var(--card-light);
-  border-radius: 10px;
-  padding: 1rem;
   position: relative;
-  text-align: center;
-  cursor: pointer;
-  transition: border-color 0.8s ease; /* برای انیمیشن ملایم تغییر رنگ فریم */
-  border: 2px solid transparent;
-}
-body.dark .claim-item {
-  background: var(--card-dark);
+  z-index: 1;
 }
 
-.claim-item:hover {
-  border: 2px solid;
-  animation: rgbBorder 3s linear infinite;
-}
-
-.claim-info {
-  margin-top: 0.7rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-.claim-item:hover .claim-info {
-  opacity: 1;
-  visibility: visible;
-}
-
-.price {
-  font-weight: bold;
-  color: var(--accent);
-}
-.buy-btn {
+/* قرار دادن عکس زیر متن رنک */
+.rank-title img {
   display: block;
-  margin-top: 0.5rem;
-  background: var(--accent);
-  color: white;
-  padding: 0.4rem;
-  border-radius: 8px;
-  text-decoration: none;
-}
-.buy-text {
-  margin-top: 2rem;
-  font-weight: bold;
-  font-size: 1.1rem;
+  margin: 5px auto 0 auto;
+  max-width: 50px;
+  height: auto;
+  filter: var(--img-filter, none);
 }
 
-footer {
-  margin-top: 3rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #777;
-}
-
-/* انیمیشن ملایم تغییر رنگ فریم RGB */
-@keyframes rgbBorder {
-  0% {
-    border-color: rgb(0, 0, 255);
-  }
-  25% {
-    border-color: rgb(255, 0, 0);
-  }
-  50% {
-    border-color: rgb(0, 255, 0);
-  }
-  75% {
-    border-color: rgb(255, 255, 0);
-  }
-  100% {
-    border-color: rgb(0, 0, 255);
-  }
-}
-
-/* ریسپانسیو برای موبایل */
-@media (max-width: 600px) {
-  .rank-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+/* تنظیمات برای تم تاریک (برای عکس‌هایی که روشن هستند) */
+body.dark .rank-title img {
+  filter: brightness(
