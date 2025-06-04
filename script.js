@@ -4,6 +4,7 @@ themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
 });
+
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
@@ -23,8 +24,7 @@ function toggleClaim() {
   detail.classList.toggle("open");
 }
 
-// فعال‌سازی فقط یکی از آیتم‌های کلیم
+// حذف فعال‌سازی کلیم با کلیک (تابع را خالی می‌گذاریم یا حذف کنید)
 function toggleClaimItem(el) {
-  document.querySelectorAll(".claim-item").forEach(item => item.classList.remove("active"));
-  el.classList.add("active");
+  // این تابع عمداً خالی است تا کلیک روی آیتم‌های کلیم بلاک رنگ آنها را تغییر ندهد.
 }
