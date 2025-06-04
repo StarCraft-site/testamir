@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// باز/بسته کردن رنک‌ها
+// باز/بسته کردن رنک‌ها و اضافه کردن فریم نارنجی
 function toggleDetails(el) {
   const isOpen = el.classList.contains("open");
   document.querySelectorAll(".rank").forEach(rank => rank.classList.remove("open"));
@@ -24,7 +24,6 @@ function toggleClaim() {
 }
 
 // حذف فعال شدن کلیک روی آیتم‌های کلیم (فقط هاور باید کار کند)
-// و خاموش شدن سریع انیمیشن وقتی موس از روی گزینه میره
 document.querySelectorAll('.claim-item').forEach(item => {
   item.addEventListener('mouseenter', () => {
     // فقط هاور CSS اعمال میشه

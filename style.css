@@ -84,12 +84,13 @@ body.dark .intro .ip-box {
 .rank {
   background: var(--card-light);
   border-radius: 12px;
-  padding: 1rem 1rem;
+  padding: 1.5rem 1rem; /* افزایش اندازه */
   cursor: pointer;
   text-align: center;
   transition: all 0.3s ease;
   min-height: 90px;
-  font-size: 0.9rem;
+  font-size: 1.1rem; /* بزرگتر کردن فونت */
+  border: 3px solid transparent; /* فریم پیشفرض شفاف */
 }
 body.dark .rank {
   background: var(--card-dark);
@@ -97,14 +98,17 @@ body.dark .rank {
 
 .rank-title {
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 2rem; /* بزرگتر کردن عنوان */
   margin-bottom: 0.3rem;
 }
 
-.rank.open .rank-details {
+.rank.open {
   max-height: 150px;
   opacity: 1;
+  border-color: var(--accent); /* فریم نارنجی هنگام باز بودن */
+  box-shadow: 0 0 10px var(--accent);
 }
+
 .rank-details {
   max-height: 0;
   overflow: hidden;
@@ -138,25 +142,20 @@ body.dark .rank {
 
 .claim-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 ستون */
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 تا در هر ردیف */
+  gap: 1rem;
+  margin-top: 1rem;
 }
-
 .claim-item {
   background: var(--card-light);
-  border-radius: 12px;
-  padding: 1.5rem 1.2rem;
+  border-radius: 10px;
+  padding: 1.5rem; /* افزایش اندازه */
   position: relative;
   text-align: center;
   cursor: pointer;
   transition: border-color 0.8s ease;
   border: 2px solid transparent;
-  font-size: 1.1rem;
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  font-size: 1.05rem; /* بزرگتر کردن فونت */
 }
 body.dark .claim-item {
   background: var(--card-dark);
@@ -187,14 +186,15 @@ body.dark .claim-item {
   margin-top: 0.5rem;
   background: var(--accent);
   color: white;
-  padding: 0.4rem;
+  padding: 0.5rem;
   border-radius: 8px;
   text-decoration: none;
+  font-weight: bold;
 }
 .buy-text {
   margin-top: 2rem;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 footer {
@@ -229,6 +229,6 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
   .claim-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }
