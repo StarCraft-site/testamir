@@ -165,14 +165,26 @@ body.dark .claim-item {
   background: var(--card-dark);
 }
 
-/* حذف حالت active و فقط روی هاور انیمیشن فریم rgb ملایم */
+/* انیمیشن رنگ فریم ملایم با سرعت 4 ثانیه */
+@keyframes smooth-rgb-color {
+  0%   { border-color: #007fff; } /* آبی */
+  15%  { border-color: #00ff7f; } /* سبزآبی */
+  30%  { border-color: #7fff00; } /* سبز */
+  45%  { border-color: #ffff00; } /* زرد */
+  60%  { border-color: #ff7f00; } /* نارنجی */
+  75%  { border-color: #ff0000; } /* قرمز */
+  90%  { border-color: #ff00ff; } /* صورتی */
+  100% { border-color: #007fff; } /* بازگشت به آبی */
+}
+
+/* فعال کردن انیمیشن فقط روی هاور */
 .claim-item:hover {
-  animation: smooth-rgb-color 12s linear infinite;
+  animation: smooth-rgb-color 4s linear infinite;
   border-width: 2px;
   border-style: solid;
 }
 
-/* نمایش اطلاعات فقط در هاور */
+/* اطلاعات فقط در هاور */
 .claim-info {
   margin-top: 0.7rem;
   opacity: 0;
@@ -212,16 +224,4 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   color: #777;
-}
-
-/* انیمیشن تغییر رنگ فریم ملایم با رنگ های RGB به ترتیب */
-@keyframes smooth-rgb-color {
-  0%   { border-color: #007fff; } /* آبی */
-  15%  { border-color: #00ff7f; } /* سبزآبی */
-  30%  { border-color: #7fff00; } /* سبز */
-  45%  { border-color: #ffff00; } /* زرد */
-  60%  { border-color: #ff7f00; } /* نارنجی */
-  75%  { border-color: #ff0000; } /* قرمز */
-  90%  { border-color: #ff00ff; } /* صورتی */
-  100% { border-color: #007fff; } /* بازگشت به آبی */
 }
