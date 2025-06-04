@@ -44,7 +44,7 @@ header {
 #themeToggle {
   background: transparent;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* کوچکتر برای موبایل و دسکتاپ */
   cursor: pointer;
   color: inherit;
 }
@@ -55,6 +55,7 @@ header {
   border-radius: 10px;
   margin-top: 1rem;
 }
+
 body.dark .intro .ip-box {
   background: var(--card-dark);
 }
@@ -70,6 +71,7 @@ body.dark .intro .ip-box {
   margin-top: 1rem;
   transition: background 0.3s ease;
 }
+
 .btn:hover {
   background: #e64a19;
 }
@@ -89,9 +91,11 @@ body.dark .intro .ip-box {
   text-align: center;
   transition: all 0.3s ease, border-color 0.3s ease;
   min-height: 100px;
-  font-size: 1rem;
+  font-size: 1.1rem; /* بزرگتر برای هماهنگی */
   border: 2px solid transparent;
+  user-select: none;
 }
+
 body.dark .rank {
   background: var(--card-dark);
 }
@@ -110,11 +114,17 @@ body.dark .rank {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: all 0.5s ease;
 }
+
 .rank.open .rank-details {
   max-height: 150px;
   opacity: 1;
+}
+
+/* نرم تر شدن انیمیشن باز شدن بخش رنک‌ها */
+.rank-details {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .claim-toggle {
@@ -127,20 +137,22 @@ body.dark .rank {
   text-align: center;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
 .claim-details {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: all 0.5s ease;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
 }
+
 .claim-details.open {
   max-height: 2000px;
   opacity: 1;
 }
 
+/* مهم: تنظیم گرید 3 در 2 برای دسکتاپ */
 .claim-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -148,6 +160,7 @@ body.dark .rank {
   margin-top: 1rem;
 }
 
+/* موبایل 2 ستون */
 @media (max-width: 600px) {
   .claim-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -163,17 +176,27 @@ body.dark .rank {
   cursor: pointer;
   transition: border-color 0.3s ease;
   border: 2px solid transparent;
-  font-size: 1rem;
+  font-size: 1.1rem; /* بزرگتر */
   font-weight: 600;
   user-select: none;
+  /* حذف انیمیشن دائم */
+  animation: none !important;
+  outline-offset: 2px;
+  outline: 2px solid transparent;
 }
+
 body.dark .claim-item {
   background: var(--card-dark);
 }
 
 .claim-item:hover {
   border-color: var(--accent);
-  animation: rgbBorder 3s linear infinite;
+  animation: none !important; /* حذف انیمیشن رنگ فریم */
+}
+
+/* وقتی موس از روی گزینه کلیم بلاک میره، رنگ فریم خیلی سریع پاک شود */
+.claim-item:not(:hover) {
+  transition: border-color 0.2s ease-out;
 }
 
 .claim-info {
@@ -182,6 +205,7 @@ body.dark .claim-item {
   visibility: hidden;
   transition: all 0.3s ease;
 }
+
 .claim-item:hover .claim-info {
   opacity: 1;
   visibility: visible;
@@ -191,6 +215,7 @@ body.dark .claim-item {
   font-weight: bold;
   color: var(--accent);
 }
+
 .buy-btn {
   display: block;
   margin-top: 0.5rem;
@@ -200,6 +225,7 @@ body.dark .claim-item {
   border-radius: 8px;
   text-decoration: none;
 }
+
 .buy-text {
   margin-top: 2rem;
   font-weight: bold;
@@ -213,21 +239,4 @@ footer {
   color: #777;
 }
 
-/* انیمیشن ملایم تغییر رنگ فریم RGB */
-@keyframes rgbBorder {
-  0% {
-    border-color: rgb(0, 0, 255);
-  }
-  25% {
-    border-color: rgb(255, 0, 0);
-  }
-  50% {
-    border-color: rgb(0, 255, 0);
-  }
-  75% {
-    border-color: rgb(255, 255, 0);
-  }
-  100% {
-    border-color: rgb(0, 0, 255);
-  }
-}
+/* انیمیشن ملایم تغییر رنگ فریم RGB حذف شد، چون باعث مانع پاک شدن سریع رنگ میشد */
