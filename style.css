@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
 
 :root {
-  --bg-light: rgb(242, 242, 242);
-  --text-light: rgb(34, 34, 34);
-  --bg-dark: rgb(26, 26, 26);
-  --text-dark: rgb(242, 242, 242);
-  --accent: rgb(255, 87, 34);
-  --card-light: rgb(255, 255, 255);
-  --card-dark: rgb(46, 46, 46);
+  --bg-light: #f2f2f2;
+  --text-light: #222;
+  --bg-dark: #1a1a1a;
+  --text-dark: #f2f2f2;
+  --accent: #ff5722;
+  --card-light: #fff;
+  --card-dark: #2e2e2e;
 }
 
 body {
@@ -73,7 +73,7 @@ body.dark .intro .ip-box {
 }
 
 .btn:hover {
-  background: rgb(230, 74, 25);
+  background: #e64a19;
 }
 
 .rank-grid {
@@ -172,10 +172,9 @@ body.dark .rank {
   font-size: 1.1rem;
   font-weight: 600;
   user-select: none;
-  transition: border-color 0.3s ease;
   outline-offset: 2px;
   outline: 2px solid transparent;
-  animation: none !important;
+  transition: border-color 0.2s ease-out;
 }
 
 body.dark .claim-item {
@@ -183,28 +182,18 @@ body.dark .claim-item {
 }
 
 @keyframes rgbBorder {
-  0% {
-    border-color: rgb(255, 0, 0);
-  }
-  25% {
-    border-color: rgb(0, 255, 0);
-  }
-  50% {
-    border-color: rgb(0, 0, 255);
-  }
-  75% {
-    border-color: rgb(255, 255, 0);
-  }
-  100% {
-    border-color: rgb(255, 0, 0);
-  }
+  0%   { border-color: red; }
+  25%  { border-color: green; }
+  50%  { border-color: blue; }
+  75%  { border-color: yellow; }
+  100% { border-color: red; }
 }
 
 .claim-item:hover {
   animation: rgbBorder 3s linear infinite;
 }
 
-/* وقتی موس از روی گزینه کلیم بلاک میره، رنگ فریم خیلی سریع پاک شود */
+/* اطمینان از توقف سریع فریم RGB */
 .claim-item:not(:hover) {
   animation: none !important;
   border-color: transparent !important;
@@ -248,5 +237,5 @@ footer {
   margin-top: 3rem;
   text-align: center;
   font-size: 0.9rem;
-  color: rgb(119, 119, 119);
+  color: #777;
 }
