@@ -4,7 +4,6 @@ themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
 });
-
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
@@ -24,7 +23,17 @@ function toggleClaim() {
   detail.classList.toggle("open");
 }
 
-// حذف فعال‌سازی کلیم با کلیک (تابع را خالی می‌گذاریم یا حذف کنید)
-function toggleClaimItem(el) {
-  // این تابع عمداً خالی است تا کلیک روی آیتم‌های کلیم بلاک رنگ آنها را تغییر ندهد.
-}
+// حذف فعال شدن کلیک روی آیتم‌های کلیم (فقط هاور باید کار کند)
+// و خاموش شدن سریع انیمیشن وقتی موس از روی گزینه میره
+document.querySelectorAll('.claim-item').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    // فقط هاور CSS اعمال میشه
+  });
+  item.addEventListener('mouseleave', () => {
+    // خاموش کردن فوری انیمیشن فریم رنگی
+    item.style.animation = 'none';
+    setTimeout(() => {
+      item.style.animation = '';
+    }, 10);
+  });
+});
