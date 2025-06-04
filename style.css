@@ -24,14 +24,12 @@ body.dark {
   color: var(--text-dark);
 }
 
-/* کانتینر اصلی */
 .container {
   max-width: 1000px;
   margin: auto;
   padding: 2rem;
 }
 
-/* هدر */
 header {
   display: flex;
   justify-content: space-between;
@@ -43,7 +41,6 @@ header {
   color: var(--accent);
 }
 
-/* دکمه تغییر تم */
 #themeToggle {
   background: transparent;
   border: none;
@@ -52,19 +49,16 @@ header {
   color: inherit;
 }
 
-/* بخش معرفی */
 .intro .ip-box {
   background: var(--card-light);
   padding: 1rem;
   border-radius: 10px;
   margin-top: 1rem;
 }
-
 body.dark .intro .ip-box {
   background: var(--card-dark);
 }
 
-/* دکمه ها */
 .btn {
   background: var(--accent);
   color: white;
@@ -80,7 +74,6 @@ body.dark .intro .ip-box {
   background: #e64a19;
 }
 
-/* گرید رنک‌ها */
 .rank-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -88,7 +81,13 @@ body.dark .intro .ip-box {
   margin-top: 1rem;
 }
 
-/* رنک‌ها */
+@media (max-width: 600px) {
+  /* چیدمان 2x2 برای رنک‌ها در موبایل */
+  .rank-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .rank {
   background: var(--card-light);
   border-radius: 12px;
@@ -99,18 +98,16 @@ body.dark .intro .ip-box {
   min-height: 180px;
 }
 
+.rank .rank-title {
+  font-size: 1.6rem; /* بزرگتر کردن کلمات MVP, VIP و ... */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
 body.dark .rank {
   background: var(--card-dark);
 }
 
-/* متن بزرگ‌تر برای عناوین رنک‌ها */
-.rank-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-/* جزئیات رنک */
 .rank.open .rank-details {
   max-height: 150px;
   opacity: 1;
@@ -122,14 +119,6 @@ body.dark .rank {
   transition: all 0.4s ease;
 }
 
-/* چیدمان رنک‌ها در موبایل: 2 کنار 2 شبیه عدد 4 */
-@media (max-width: 600px) {
-  .rank-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* کلید کلیم */
 .claim-toggle {
   background: var(--accent);
   color: white;
@@ -143,7 +132,6 @@ body.dark .rank {
   transition: background 0.3s;
 }
 
-/* جزئیات کلیم */
 .claim-details {
   max-height: 0;
   overflow: hidden;
@@ -155,7 +143,6 @@ body.dark .rank {
   opacity: 1;
 }
 
-/* گرید کلیم بلاک‌ها */
 .claim-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -163,105 +150,35 @@ body.dark .rank {
   margin-top: 1rem;
 }
 
-/* هر آیتم کلیم بلاک */
 .claim-item {
   background: var(--card-light);
   border-radius: 10px;
   padding: 1rem;
   position: relative;
   text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  /* برای تم تاریک */
-  color: var(--text-light);
+  cursor: default; /* غیرقابل کلیک */
+  transition: border-color 1.5s ease;
+  border: 2px solid transparent; /* حاشیه پیش‌فرض */
 }
 
-/* در تم تاریک */
 body.dark .claim-item {
   background: var(--card-dark);
-  color: var(--text-dark);
 }
 
-/* حذف حالت active هنگام کلیک (فقط انیمیشن ها با هاور) */
-/* پس نذاریم هنگام کلیک رنگ بمونه، فقط وقتی ماوس روی گزینه است */
-.claim-item.active {
-  box-shadow: none !important;
-  border-image-source: none !important;
-  border-color: transparent !important;
-}
-
-/* انیمیشن فریم ملایم RGB هنگام هاور */
+/* حذف حالت active و فقط روی هاور انیمیشن فریم rgb ملایم */
 .claim-item:hover {
-  border: 2px solid;
-  border-image-slice: 1;
-  border-image-source: linear-gradient(
-    90deg,
-    #ff0000,
-    #ff7f00,
-    #ffff00,
-    #7fff00,
-    #00ff00,
-    #00ff7f,
-    #00ffff,
-    #007fff,
-    #0000ff,
-    #7f00ff,
-    #ff00ff,
-    #ff007f,
-    #ff0000
-  );
-  animation: smooth-rgb-border 10s linear infinite;
+  animation: smooth-rgb-color 12s linear infinite;
+  border-width: 2px;
+  border-style: solid;
 }
 
-/* انیمیشن تغییر زاویه گرادینت */
-@keyframes smooth-rgb-border {
-  0% {
-    border-image-source: linear-gradient(
-      90deg,
-      #ff0000,
-      #ff7f00,
-      #ffff00,
-      #7fff00,
-      #00ff00,
-      #00ff7f,
-      #00ffff,
-      #007fff,
-      #0000ff,
-      #7f00ff,
-      #ff00ff,
-      #ff007f,
-      #ff0000
-    );
-  }
-  100% {
-    border-image-source: linear-gradient(
-      450deg,
-      #ff0000,
-      #ff7f00,
-      #ffff00,
-      #7fff00,
-      #00ff00,
-      #00ff7f,
-      #00ffff,
-      #007fff,
-      #0000ff,
-      #7f00ff,
-      #ff00ff,
-      #ff007f,
-      #ff0000
-    );
-  }
-}
-
-/* جزئیات نمایش روی کلیم بلاک */
+/* نمایش اطلاعات فقط در هاور */
 .claim-info {
   margin-top: 0.7rem;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
 }
-
 .claim-item:hover .claim-info {
   opacity: 1;
   visibility: visible;
@@ -284,17 +201,27 @@ body.dark .claim-item {
   text-decoration: none;
 }
 
-/* متن راهنما */
 .buy-text {
   margin-top: 2rem;
   font-weight: bold;
   font-size: 1.1rem;
 }
 
-/* فوتر */
 footer {
   margin-top: 3rem;
   text-align: center;
   font-size: 0.9rem;
   color: #777;
+}
+
+/* انیمیشن تغییر رنگ فریم ملایم با رنگ های RGB به ترتیب */
+@keyframes smooth-rgb-color {
+  0%   { border-color: #007fff; } /* آبی */
+  15%  { border-color: #00ff7f; } /* سبزآبی */
+  30%  { border-color: #7fff00; } /* سبز */
+  45%  { border-color: #ffff00; } /* زرد */
+  60%  { border-color: #ff7f00; } /* نارنجی */
+  75%  { border-color: #ff0000; } /* قرمز */
+  90%  { border-color: #ff00ff; } /* صورتی */
+  100% { border-color: #007fff; } /* بازگشت به آبی */
 }
