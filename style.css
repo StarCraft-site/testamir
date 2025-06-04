@@ -10,6 +10,14 @@
   --card-dark: #2e2e2e;
 }
 
+/* انیمیشن رنگ فریم rgb پویا */
+@keyframes rgb-border {
+  0% { border-color: rgb(255, 0, 0); }
+  33% { border-color: rgb(0, 255, 0); }
+  66% { border-color: rgb(0, 0, 255); }
+  100% { border-color: rgb(255, 0, 0); }
+}
+
 body {
   margin: 0;
   font-family: 'Vazirmatn', sans-serif;
@@ -24,12 +32,14 @@ body.dark {
   color: var(--text-dark);
 }
 
+/* کانتینر */
 .container {
   max-width: 1000px;
   margin: auto;
   padding: 2rem;
 }
 
+/* هدر */
 header {
   display: flex;
   justify-content: space-between;
@@ -49,16 +59,19 @@ header {
   color: inherit;
 }
 
+/* معرفی */
 .intro .ip-box {
   background: var(--card-light);
   padding: 1rem;
   border-radius: 10px;
   margin-top: 1rem;
 }
+
 body.dark .intro .ip-box {
   background: var(--card-dark);
 }
 
+/* دکمه‌ها */
 .btn {
   background: var(--accent);
   color: white;
@@ -74,6 +87,7 @@ body.dark .intro .ip-box {
   background: #e64a19;
 }
 
+/* شبکه رنک‌ها */
 .rank-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -104,6 +118,7 @@ body.dark .rank {
   transition: all 0.4s ease;
 }
 
+/* کلیم بلاک */
 .claim-toggle {
   background: var(--accent);
   color: white;
@@ -134,6 +149,8 @@ body.dark .rank {
   gap: 1rem;
   margin-top: 1rem;
 }
+
+/* آیتم‌های کلیم بلاک */
 .claim-item {
   background: var(--card-light);
   border-radius: 10px;
@@ -142,31 +159,48 @@ body.dark .rank {
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px solid transparent; /* اضافه برای فریم پیش‌فرض */
+  border: 2px solid transparent; /* فریم پیش‌فرض */
 }
+
+/* پس‌زمینه تیره در حالت دارک */
+body.dark .claim-item {
+  background: var(--card-dark);
+}
+
+/* وقتی موس روی آیتم میره */
 .claim-item:hover {
   box-shadow: none; /* حذف نورانی شدن */
-  border: 2px solid rgb(255, 0, 0); /* فریم قرمز با رنگ RGB */
+  animation: rgb-border 3s linear infinite; /* انیمیشن رنگ فریم */
+  border-width: 2px;
+  border-style: solid;
 }
+
+/* آیتم فعال */
 .claim-item.active {
-  box-shadow: none; /* حذف نورانی شدن برای حالت فعال */
-  border: 2px solid rgb(255, 0, 0);
+  box-shadow: none; /* حذف نورانی شدن */
+  animation: rgb-border 3s linear infinite; /* انیمیشن رنگ فریم */
+  border-width: 2px;
+  border-style: solid;
 }
+
 .claim-info {
   margin-top: 0.7rem;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
 }
+
 .claim-item:hover .claim-info,
 .claim-item.active .claim-info {
   opacity: 1;
   visibility: visible;
 }
+
 .price {
   font-weight: bold;
   color: var(--accent);
 }
+
 .buy-btn {
   display: block;
   margin-top: 0.5rem;
@@ -176,11 +210,14 @@ body.dark .rank {
   border-radius: 8px;
   text-decoration: none;
 }
+
 .buy-text {
   margin-top: 2rem;
   font-weight: bold;
   font-size: 1.1rem;
 }
+
+/* فوتر */
 footer {
   margin-top: 3rem;
   text-align: center;
