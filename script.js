@@ -1,30 +1,19 @@
-// تم تاریک/روشن
+// تغییر تم تاریک/روشن و ذخیره در localStorage
 const themeToggle = document.getElementById("themeToggle");
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
 });
 
+// اعمال تم ذخیره شده در بارگذاری صفحه
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
   }
 });
 
-// باز/بسته کردن رنک‌ها و تغییر فریم به نارنجی
-function toggleDetails(el) {
-  const isOpen = el.classList.contains("open");
-  document.querySelectorAll(".rank").forEach(rank => rank.classList.remove("open"));
-  if (!isOpen) {
-    el.classList.add("open");
-  }
-}
-
-// باز/بسته کردن بخش کلیم
+// باز/بسته کردن بخش تعرفه کلیم بلاک با کلیک
 function toggleClaim() {
   const detail = document.querySelector(".claim-details");
   detail.classList.toggle("open");
 }
-
-// حذف فعال شدن کلیک روی آیتم‌های کلیم (فقط هاور باید کار کند)
-// و خاموش شدن سریع انیمیشن وقتی موس

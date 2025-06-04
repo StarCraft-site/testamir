@@ -92,37 +92,69 @@ body.dark .intro .ip-box {
   transition: all 0.3s ease, border-color 0.3s ease;
   min-height: 100px;
   font-size: 1.1rem;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   user-select: none;
+  position: relative;
+  overflow: hidden;
 }
 
 body.dark .rank {
   background: var(--card-dark);
 }
 
+/* انیمیشن فریم RGB برای رنک‌ها روی هاور */
+@keyframes rgbBorder {
+  0%   { border-color: red; }
+  25%  { border-color: green; }
+  50%  { border-color: blue; }
+  75%  { border-color: yellow; }
+  100% { border-color: red; }
+}
+
+.rank:hover {
+  animation: rgbBorder 3s linear infinite;
+  border-width: 3px;
+}
+
+/* نمایش جزئیات رنک روی هاور (باز/بسته شدن خودکار) */
+.rank-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  margin-top: 0.8rem;
+}
+
+.rank:hover .rank-details {
+  max-height: 200px; /* بزرگتر برای محتوای داخل */
+  opacity: 1;
+}
+
+/* عنوان رنک */
 .rank-title {
   font-weight: 700;
   font-size: 1.8rem;
   margin-bottom: 0.3rem;
 }
 
-.rank.open {
-  border-color: var(--accent);
+/* دکمه خرید داخل رنک */
+.buy-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.3s ease;
 }
 
-.rank-details {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.5s ease;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+.buy-btn:hover {
+  background: #e64a19;
 }
 
-.rank.open .rank-details {
-  max-height: 150px;
-  opacity: 1;
-}
-
+/* بخش کلیم */
 .claim-toggle {
   background: var(--accent);
   color: white;
@@ -134,6 +166,7 @@ body.dark .rank {
   cursor: pointer;
   font-weight: bold;
   transition: background 0.3s ease;
+  user-select: none;
 }
 
 .claim-details {
@@ -168,38 +201,26 @@ body.dark .rank {
   position: relative;
   text-align: center;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   font-size: 1.1rem;
   font-weight: 600;
   user-select: none;
   outline-offset: 2px;
   outline: 2px solid transparent;
-  transition: border-color 0.2s ease-out;
+  transition: border-color 0.3s ease;
+}
+
+/* انیمیشن فریم RGB روی هاور کلیم‌ها */
+.claim-item:hover {
+  animation: rgbBorder 3s linear infinite;
+  border-width: 3px;
 }
 
 body.dark .claim-item {
   background: var(--card-dark);
 }
 
-@keyframes rgbBorder {
-  0%   { border-color: red; }
-  25%  { border-color: green; }
-  50%  { border-color: blue; }
-  75%  { border-color: yellow; }
-  100% { border-color: red; }
-}
-
-.claim-item:hover {
-  animation: rgbBorder 3s linear infinite;
-}
-
-/* اطمینان از توقف سریع فریم RGB */
-.claim-item:not(:hover) {
-  animation: none !important;
-  border-color: transparent !important;
-  transition: border-color 0.2s ease-out;
-}
-
+/* اطلاعات داخل آیتم کلیم */
 .claim-info {
   margin-top: 0.7rem;
   opacity: 0;
@@ -215,16 +236,6 @@ body.dark .claim-item {
 .price {
   font-weight: bold;
   color: var(--accent);
-}
-
-.buy-btn {
-  display: block;
-  margin-top: 0.5rem;
-  background: var(--accent);
-  color: white;
-  padding: 0.4rem;
-  border-radius: 8px;
-  text-decoration: none;
 }
 
 .buy-text {
