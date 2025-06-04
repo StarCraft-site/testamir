@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+:root {
+  --bg-light: #f2f2f2;
+  --text-light: #222;
+  --bg-dark: #1a1a1a;
+  --text-dark: #f2f2f2;
+  --accent: #ff5722;
+  --card-light: #fff;
+  --card-dark: #2e2e2e;
+}
+
+body {
+  margin: 0;
+  font-family: 'Vazirmatn', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: all 0.4s ease;
+  direction: rtl;
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+#themeToggle {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+.intro .ip-box {
+  background: var(--card-light);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+body.dark .intro .ip-box {
+  background: var(--card-dark);
+}
+
+.btn {
+  background: var(--accent);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background: #e64a19;
+}
+
+.rank-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.rank {
+  background: var(--card-light);
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-height: 180px;
+}
+body.dark .rank {
+  background: var(--card-dark);
+}
+.rank.open .rank-details {
+  max-height: 150px;
+  opacity: 1;
+}
+.rank-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.claim-toggle {
+  background: var(--accent);
+  color: white;
+  font-size: 1.2rem;
+  padding: 1.2rem;
+  border-radius: 14px;
+  margin: 2rem 0 1rem;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.claim-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.claim-details.open {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.claim-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.claim-item {
+  background: var(--card-light);
+  border-radius: 10px;
+  padding: 1rem;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent; /* اضافه برای فریم پیش‌فرض */
+}
+.claim-item:hover {
+  box-shadow: none; /* حذف نورانی شدن */
+  border: 2px solid rgb(255, 0, 0); /* فریم قرمز با رنگ RGB */
+}
+.claim-item.active {
+  box-shadow: none; /* حذف نورانی شدن برای حالت فعال */
+  border: 2px solid rgb(255, 0, 0);
+}
+.claim-info {
+  margin-top: 0.7rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.claim-item:hover .claim-info,
+.claim-item.active .claim-info {
+  opacity: 1;
+  visibility: visible;
+}
+.price {
+  font-weight: bold;
+  color: var(--accent);
+}
+.buy-btn {
+  display: block;
+  margin-top: 0.5rem;
+  background: var(--accent);
+  color: white;
+  padding: 0.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.buy-text {
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
