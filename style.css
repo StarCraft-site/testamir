@@ -84,12 +84,13 @@ body.dark .intro .ip-box {
 .rank {
   background: var(--card-light);
   border-radius: 12px;
-  padding: 1rem 1rem;
+  padding: 1.2rem 1rem;
   cursor: pointer;
   text-align: center;
-  transition: all 0.3s ease;
-  min-height: 90px;
-  font-size: 0.9rem;
+  transition: all 0.3s ease, border-color 0.3s ease;
+  min-height: 100px;
+  font-size: 1rem;
+  border: 2px solid transparent;
 }
 body.dark .rank {
   background: var(--card-dark);
@@ -101,15 +102,19 @@ body.dark .rank {
   margin-bottom: 0.3rem;
 }
 
-.rank.open .rank-details {
-  max-height: 150px;
-  opacity: 1;
+.rank.open {
+  border-color: var(--accent);
 }
+
 .rank-details {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transition: all 0.4s ease;
+}
+.rank.open .rank-details {
+  max-height: 150px;
+  opacity: 1;
 }
 
 .claim-toggle {
@@ -138,32 +143,36 @@ body.dark .rank {
 
 .claim-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 ستون */
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .claim-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .claim-item {
   background: var(--card-light);
-  border-radius: 12px;
-  padding: 1.5rem 1.2rem;
+  border-radius: 10px;
+  padding: 1.2rem;
   position: relative;
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.8s ease;
+  transition: border-color 0.3s ease;
   border: 2px solid transparent;
-  font-size: 1.1rem;
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  user-select: none;
 }
 body.dark .claim-item {
   background: var(--card-dark);
 }
 
 .claim-item:hover {
-  border: 2px solid;
+  border-color: var(--accent);
   animation: rgbBorder 3s linear infinite;
 }
 
@@ -220,15 +229,5 @@ footer {
   }
   100% {
     border-color: rgb(0, 0, 255);
-  }
-}
-
-/* ریسپانسیو برای موبایل */
-@media (max-width: 600px) {
-  .rank-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .claim-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
