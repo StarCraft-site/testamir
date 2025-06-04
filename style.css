@@ -76,36 +76,31 @@ body.dark .intro .ip-box {
 
 .rank-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* 2 در 2 چیدمان */
   gap: 1rem;
   margin-top: 1rem;
-}
-
-/* رنک‌ها بزرگ‌تر شوند */
-.rank .rank-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-/* تنظیم چیدمان موبایل: دو ردیف 2 در 2 مثل عدد ۴ */
-@media (max-width: 600px) {
-  .rank-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .rank {
   background: var(--card-light);
   border-radius: 12px;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem; /* نصف ارتفاع قبلی */
   cursor: pointer;
   text-align: center;
   transition: all 0.3s ease;
-  min-height: 180px;
+  min-height: 90px; /* نصف ارتفاع قبلی */
+  font-size: 0.9rem;
 }
 body.dark .rank {
   background: var(--card-dark);
 }
+
+.rank-title {
+  font-weight: 700;
+  font-size: 1.8rem; /* بزرگتر کردن کلمات MVP و غیره */
+  margin-bottom: 0.3rem;
+}
+
 .rank.open .rank-details {
   max-height: 150px;
   opacity: 1;
@@ -147,7 +142,6 @@ body.dark .rank {
   gap: 1rem;
   margin-top: 1rem;
 }
-
 .claim-item {
   background: var(--card-light);
   border-radius: 10px;
@@ -155,35 +149,24 @@ body.dark .rank {
   position: relative;
   text-align: center;
   cursor: pointer;
-  transition: border-color 1.5s ease;
-  border: 3px solid transparent;
+  transition: border-color 0.8s ease; /* برای انیمیشن ملایم تغییر رنگ فریم */
+  border: 2px solid transparent;
 }
 body.dark .claim-item {
   background: var(--card-dark);
 }
 
-/* حذف حالت active و نورانی شدن */
-/* انیمیشن رنگ فریم ملایم و آرام هنگام هاور */
-@keyframes rgb-smooth {
-  0% { border-color: rgb(0, 0, 255); }     /* آبی */
-  33% { border-color: rgb(255, 0, 0); }    /* قرمز */
-  66% { border-color: rgb(0, 255, 0); }    /* سبز */
-  100% { border-color: rgb(0, 0, 255); }   /* برگشت به آبی */
-}
-
 .claim-item:hover {
-  animation: rgb-smooth 3s linear infinite;
-  border-style: solid;
+  border: 2px solid;
+  animation: rgbBorder 3s linear infinite;
 }
 
-/* اطلاعات قیمت و دکمه خرید مخفی در حالت عادی */
 .claim-info {
   margin-top: 0.7rem;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
 }
-/* نمایش اطلاعات فقط در حالت هاور */
 .claim-item:hover .claim-info {
   opacity: 1;
   visibility: visible;
@@ -193,7 +176,6 @@ body.dark .claim-item {
   font-weight: bold;
   color: var(--accent);
 }
-
 .buy-btn {
   display: block;
   margin-top: 0.5rem;
@@ -203,7 +185,6 @@ body.dark .claim-item {
   border-radius: 8px;
   text-decoration: none;
 }
-
 .buy-text {
   margin-top: 2rem;
   font-weight: bold;
@@ -215,4 +196,30 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   color: #777;
+}
+
+/* انیمیشن ملایم تغییر رنگ فریم RGB */
+@keyframes rgbBorder {
+  0% {
+    border-color: rgb(0, 0, 255);
+  }
+  25% {
+    border-color: rgb(255, 0, 0);
+  }
+  50% {
+    border-color: rgb(0, 255, 0);
+  }
+  75% {
+    border-color: rgb(255, 255, 0);
+  }
+  100% {
+    border-color: rgb(0, 0, 255);
+  }
+}
+
+/* ریسپانسیو برای موبایل */
+@media (max-width: 600px) {
+  .rank-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
