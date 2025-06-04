@@ -76,7 +76,7 @@ body.dark .intro .ip-box {
 
 .rank-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 در 2 چیدمان */
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -84,11 +84,11 @@ body.dark .intro .ip-box {
 .rank {
   background: var(--card-light);
   border-radius: 12px;
-  padding: 1rem 1rem; /* نصف ارتفاع قبلی */
+  padding: 1rem 1rem;
   cursor: pointer;
   text-align: center;
   transition: all 0.3s ease;
-  min-height: 90px; /* نصف ارتفاع قبلی */
+  min-height: 90px;
   font-size: 0.9rem;
 }
 body.dark .rank {
@@ -97,7 +97,7 @@ body.dark .rank {
 
 .rank-title {
   font-weight: 700;
-  font-size: 1.8rem; /* بزرگتر کردن کلمات MVP و غیره */
+  font-size: 1.8rem;
   margin-bottom: 0.3rem;
 }
 
@@ -138,19 +138,25 @@ body.dark .rank {
 
 .claim-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 ستون */
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
+
 .claim-item {
   background: var(--card-light);
-  border-radius: 10px;
-  padding: 1rem;
+  border-radius: 12px;
+  padding: 1.5rem 1.2rem;
   position: relative;
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.8s ease; /* برای انیمیشن ملایم تغییر رنگ فریم */
+  transition: border-color 0.8s ease;
   border: 2px solid transparent;
+  font-size: 1.1rem;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 body.dark .claim-item {
   background: var(--card-dark);
@@ -220,6 +226,9 @@ footer {
 /* ریسپانسیو برای موبایل */
 @media (max-width: 600px) {
   .rank-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .claim-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
