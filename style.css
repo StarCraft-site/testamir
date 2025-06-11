@@ -51,7 +51,7 @@ header {
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 1rem;
-  font-family: 'Vazirmatn', sans-serif !important;
+  font-family: 'Vazirmatn', sans-serif;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -62,7 +62,6 @@ body.dark #themeToggle {
   border-color: #555;
 }
 
-/* فقط در موبایل فونت لوگو کوچک‌تر شود */
 @media (max-width: 600px) {
   .logo {
     font-size: 1.5rem;
@@ -74,6 +73,197 @@ body.dark #themeToggle {
   }
 }
 
-/* سایر استایل‌ها بدون تغییر باقی مانده‌اند (intro, btn, rank-grid, claim-block, footer, ...) */
+.intro .ip-box {
+  background: var(--card-light);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
 
-/* ... ادامه‌ی تمام CSS قبلی (همه چیز حفظ شده) ... */
+body.dark .intro .ip-box {
+  background: var(--card-dark);
+}
+
+.btn {
+  background: var(--accent);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #e64a19;
+}
+
+.rank-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.rank {
+  background: var(--card-light);
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease, border-color 0.3s ease;
+  min-height: 100px;
+  font-size: 1.1rem;
+  border: 3px solid transparent;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark .rank {
+  background: var(--card-dark);
+}
+
+@keyframes rgbBorder {
+  0%   { border-color: red; }
+  25%  { border-color: green; }
+  50%  { border-color: blue; }
+  75%  { border-color: yellow; }
+  100% { border-color: red; }
+}
+
+.rank:hover {
+  animation: rgbBorder 3s linear infinite;
+  border-width: 3px;
+}
+
+.rank-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  margin-top: 0.8rem;
+}
+
+.rank:hover .rank-details {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.rank-title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.buy-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.3s ease;
+}
+
+.buy-btn:hover {
+  background: #e64a19;
+}
+
+.claim-toggle {
+  background: var(--accent);
+  color: white;
+  font-size: 1.2rem;
+  padding: 1.2rem;
+  border-radius: 14px;
+  margin: 2rem 0 1rem;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.claim-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
+}
+
+.claim-details.open {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.claim-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .claim-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.claim-item {
+  background: var(--card-light);
+  border-radius: 10px;
+  padding: 1.2rem;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  border: 3px solid transparent;
+  font-size: 1.1rem;
+  font-weight: 600;
+  user-select: none;
+  outline-offset: 2px;
+  outline: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.claim-item:hover {
+  animation: rgbBorder 3s linear infinite;
+  border-width: 3px;
+}
+
+body.dark .claim-item {
+  background: var(--card-dark);
+}
+
+.claim-info {
+  margin-top: 0.7rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.claim-item:hover .claim-info {
+  opacity: 1;
+  visibility: visible;
+}
+
+.price {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.buy-text {
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  }
