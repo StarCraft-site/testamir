@@ -8,6 +8,8 @@
   --accent: #ff5722;
   --card-light: #fff;
   --card-dark: #2e2e2e;
+  --meteor-light: rgba(255, 255, 255, 0.8);
+  --meteor-dark: rgba(255, 200, 50, 0.9);
 }
 
 body {
@@ -17,6 +19,8 @@ body {
   color: var(--text-light);
   transition: all 0.4s ease;
   direction: rtl;
+  position: relative;
+  overflow-x: hidden; /* جلوگیری از اسکرول افقی به خاطر شهاب‌سنگ‌ها */
 }
 
 body.dark {
@@ -28,6 +32,42 @@ body.dark {
   max-width: 1000px;
   margin: auto;
   padding: 2rem;
+  position: relative;
+  z-index: 10; /* روی شهاب‌سنگ‌ها قرار بگیرد */
+}
+
+/* شهاب‌سنگ‌ها */
+#meteor-container {
+  pointer-events: none; /* کلیک‌ها به زیر منتقل شود */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: visible;
+  z-index: 1;
+}
+
+.meteor {
+  position: fixed;
+  top: -10px;
+  width: 3px;
+  height: 80px;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px);
+  opacity: 0.8;
+  animation-timing-function: linear;
+  will-change: transform, opacity;
+}
+
+body:not(.dark) .meteor {
+  background: linear-gradient(45deg, var(--meteor-light) 0%, transparent 100%);
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.8));
+}
+
+body.dark .meteor {
+  background: linear-gradient(45deg, var(--meteor-dark) 0%, transparent 100%);
+  filter: drop-shadow(0 0 8px rgba(255, 200, 50, 0.9));
 }
 
 header {
@@ -35,6 +75,8 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
 }
 
 .logo {
@@ -59,6 +101,9 @@ header {
   padding: 0.4rem 0.8rem;
   border-radius: 10px;
   font-family: 'Vazirmatn', sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+  position: relative;
+  z-index: 10;
 }
 
 body.dark #themeToggle {
@@ -71,6 +116,8 @@ body.dark #themeToggle {
   padding: 1rem;
   border-radius: 10px;
   margin-top: 1rem;
+  position: relative;
+  z-index: 10;
 }
 
 body.dark .intro .ip-box {
@@ -87,6 +134,8 @@ body.dark .intro .ip-box {
   display: inline-block;
   margin-top: 1rem;
   transition: background 0.3s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .btn:hover {
@@ -98,6 +147,8 @@ body.dark .intro .ip-box {
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-top: 1rem;
+  position: relative;
+  z-index: 10;
 }
 
 .rank {
@@ -113,6 +164,7 @@ body.dark .intro .ip-box {
   user-select: none;
   position: relative;
   overflow: hidden;
+  z-index: 10;
 }
 
 body.dark .rank {
@@ -153,6 +205,7 @@ body.dark .rank {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  user-select: none;
 }
 
 .rank-icon {
@@ -201,6 +254,8 @@ body.dark .rank {
   font-weight: bold;
   transition: background 0.3s ease;
   user-select: none;
+  position: relative;
+  z-index: 10;
 }
 
 .claim-details {
@@ -208,6 +263,8 @@ body.dark .rank {
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.6s ease, opacity 0.6s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .claim-details.open {
@@ -220,6 +277,8 @@ body.dark .rank {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 1rem;
+  position: relative;
+  z-index: 10;
 }
 
 @media (max-width: 600px) {
@@ -242,6 +301,7 @@ body.dark .rank {
   outline-offset: 2px;
   outline: 2px solid transparent;
   transition: border-color 0.3s ease;
+  z-index: 10;
 }
 
 .claim-item:hover {
@@ -258,6 +318,8 @@ body.dark .claim-item {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .claim-item:hover .claim-info {
@@ -281,4 +343,6 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   color: #777;
+  position: relative;
+  z-index: 10;
   }
