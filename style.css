@@ -1,285 +1,285 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&family=Orbitron:wght@600&display=swap');
 
 :root {
---bg-light: #f2f2f2;
---text-light: #222;
---bg-dark: #1a1a1a;
---text-dark: #f2f2f2;
---accent: #ff5722;
---card-light: #fff;
---card-dark: #2e2e2e;
+  --bg-light: #f2f2f2;
+  --text-light: #222;
+  --bg-dark: #1a1a1a;
+  --text-dark: #f2f2f2;
+  --accent: #ff5722;
+  --card-light: #fff;
+  --card-dark: #2e2e2e;
 }
 
 body {
-margin: 0;
-font-family: 'Vazirmatn', sans-serif;
-background: var(--bg-light);
-color: var(--text-light);
-transition: all 0.4s ease;
-direction: rtl;
+  margin: 0;
+  font-family: 'Vazirmatn', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: all 0.4s ease;
+  direction: rtl;
 }
 
 body.dark {
-background: var(--bg-dark);
-color: var(--text-dark);
+  background: var(--bg-dark);
+  color: var(--text-dark);
 }
 
 .container {
-max-width: 1000px;
-margin: auto;
-padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
 }
 
 header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo {
-font-size: 1.7rem;
-color: var(--accent);
-display: flex;
-align-items: center;
+  font-size: 1.7rem;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
 }
 
 .logo-text {
-font-family: 'Orbitron', sans-serif;
-font-size: 1.5rem;
-margin-right: 0.3rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  margin-right: 0.3rem;
 }
 
 #themeToggle {
-background: #ddd;
-border: none;
-font-size: 1rem;
-cursor: pointer;
-color: #333;
-padding: 0.4rem 0.8rem;
-border-radius: 10px;
-font-family: 'Vazirmatn', sans-serif;
+  background: #ddd;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #333;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  font-family: 'Vazirmatn', sans-serif;
 }
 
 body.dark #themeToggle {
-background: #444;
-color: white;
+  background: #444;
+  color: white;
 }
 
 .intro .ip-box {
-background: var(--card-light);
-padding: 1rem;
-border-radius: 10px;
-margin-top: 1rem;
+  background: var(--card-light);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
 }
 
 body.dark .intro .ip-box {
-background: var(--card-dark);
+  background: var(--card-dark);
 }
 
 .btn {
-background: var(--accent);
-color: white;
-padding: 0.7rem 1.2rem;
-border-radius: 10px;
-text-decoration: none;
-font-weight: bold;
-display: inline-block;
-margin-top: 1rem;
-transition: background 0.3s ease;
+  background: var(--accent);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
 }
 
 .btn:hover {
-background: #e64a19;
+  background: #e64a19;
 }
 
+/* تغییر این قسمت برای چیدمان عمودی رنک‌ها */
 .rank-grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 1rem;
-margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .rank {
-background: var(--card-light);
-border-radius: 12px;
-padding: 1.2rem 1rem;
-cursor: pointer;
-text-align: center;
-transition: all 0.3s ease, border-color 0.3s ease;
-min-height: 100px;
-font-size: 1.1rem;
-border: 3px solid transparent;
-user-select: none;
-position: relative;
-overflow: hidden;
+  background: var(--card-light);
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease, border-color 0.3s ease;
+  min-height: 100px;
+  font-size: 1.1rem;
+  border: 3px solid transparent;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
 }
 
 body.dark .rank {
-background: var(--card-dark);
+  background: var(--card-dark);
 }
 
 @keyframes rgbBorder {
-0% { border-color: red; }
-25% { border-color: green; }
-50% { border-color: blue; }
-75% { border-color: yellow; }
-100% { border-color: red; }
+  0% { border-color: red; }
+  25% { border-color: green; }
+  50% { border-color: blue; }
+  75% { border-color: yellow; }
+  100% { border-color: red; }
 }
 
 .rank:hover {
-animation: rgbBorder 3s linear infinite;
-border-width: 3px;
+  animation: rgbBorder 3s linear infinite;
+  border-width: 3px;
 }
 
 .rank-details {
-max-height: 0;
-opacity: 0;
-overflow: hidden;
-transition: max-height 0.5s ease, opacity 0.5s ease;
-margin-top: 0.8rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  margin-top: 0.8rem;
 }
 
 .rank:hover .rank-details {
-max-height: 200px;
-opacity: 1;
+  max-height: 200px;
+  opacity: 1;
 }
 
 .rank-title {
-font-weight: 700;
-font-size: 1.8rem;
-margin-bottom: 0.3rem;
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .rank-icon {
-width: 30px;
-height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .animated-icon {
-animation: floatIcon 2s ease-in-out infinite;
+  animation: floatIcon 2s ease-in-out infinite;
 }
 
 @keyframes floatIcon {
-0%, 100% {
-transform: translateY(0);
-}
-50% {
-transform: translateY(-6px);
-}
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 .buy-btn {
-display: inline-block;
-margin-top: 1rem;
-background: var(--accent);
-color: white;
-padding: 0.5rem 1rem;
-border-radius: 10px;
-text-decoration: none;
-font-weight: 700;
-transition: background 0.3s ease;
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.3s ease;
 }
 
 .buy-btn:hover {
-background: #e64a19;
+  background: #e64a19;
 }
 
 .claim-toggle {
-background: var(--accent);
-color: white;
-font-size: 1.2rem;
-padding: 1.2rem;
-border-radius: 14px;
-margin: 2rem 0 1rem;
-text-align: center;
-cursor: pointer;
-font-weight: bold;
-transition: background 0.3s ease;
-user-select: none;
+  background: var(--accent);
+  color: white;
+  font-size: 1.2rem;
+  padding: 1.2rem;
+  border-radius: 14px;
+  margin: 2rem 0 1rem;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  user-select: none;
 }
 
 .claim-details {
-max-height: 0;
-overflow: hidden;
-opacity: 0;
-transition: max-height 0.6s ease, opacity 0.6s ease;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
 }
 
 .claim-details.open {
-max-height: 2000px;
-opacity: 1;
+  max-height: 2000px;
+  opacity: 1;
 }
 
 .claim-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 1rem;
-margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 @media (max-width: 600px) {
-.claim-grid {
-grid-template-columns: repeat(2, 1fr);
-}
+  .claim-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .claim-item {
-background: var(--card-light);
-border-radius: 10px;
-padding: 1.2rem;
-position: relative;
-text-align: center;
-cursor: pointer;
-border: 3px solid transparent;
-font-size: 1.1rem;
-font-weight: 600;
-user-select: none;
-outline-offset: 2px;
-outline: 2px solid transparent;
-transition: border-color 0.3s ease;
+  background: var(--card-light);
+  border-radius: 10px;
+  padding: 1.2rem;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  border: 3px solid transparent;
+  font-size: 1.1rem;
+  font-weight: 600;
+  user-select: none;
+  outline-offset: 2px;
+  outline: 2px solid transparent;
+  transition: border-color 0.3s ease;
 }
 
 .claim-item:hover {
-animation: rgbBorder 3s linear infinite;
-border-width: 3px;
+  animation: rgbBorder 3s linear infinite;
+  border-width: 3px;
 }
 
 body.dark .claim-item {
-background: var(--card-dark);
+  background: var(--card-dark);
 }
 
 .claim-info {
-margin-top: 0.7rem;
-opacity: 0;
-visibility: hidden;
-transition: all 0.3s ease;
+  margin-top: 0.7rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
 }
 
 .claim-item:hover .claim-info {
-opacity: 1;
-visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .price {
-font-weight: bold;
-color: var(--accent);
+  font-weight: bold;
+  color: var(--accent);
 }
 
 .buy-text {
-margin-top: 2rem;
-font-weight: bold;
-font-size: 1.1rem;
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 footer {
-margin-top: 3rem;
-text-align: center;
-font-size: 0.9rem;
-color: #777;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
 }
-
