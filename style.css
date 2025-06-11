@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
 :root {
   --bg-light: #f2f2f2;
@@ -39,6 +40,7 @@ header {
 .logo {
   font-size: 2rem;
   color: var(--accent);
+  font-family: 'Orbitron', sans-serif;
 }
 
 #themeToggle {
@@ -47,6 +49,7 @@ header {
   font-size: 1.2rem;
   cursor: pointer;
   color: inherit;
+  font-family: 'Vazirmatn', sans-serif !important;
 }
 
 .intro .ip-box {
@@ -102,7 +105,6 @@ body.dark .rank {
   background: var(--card-dark);
 }
 
-/* انیمیشن فریم RGB برای رنک‌ها روی هاور */
 @keyframes rgbBorder {
   0%   { border-color: red; }
   25%  { border-color: green; }
@@ -116,7 +118,6 @@ body.dark .rank {
   border-width: 3px;
 }
 
-/* نمایش جزئیات رنک روی هاور (باز/بسته شدن خودکار) */
 .rank-details {
   max-height: 0;
   opacity: 0;
@@ -126,18 +127,16 @@ body.dark .rank {
 }
 
 .rank:hover .rank-details {
-  max-height: 200px; /* بزرگتر برای محتوای داخل */
+  max-height: 200px;
   opacity: 1;
 }
 
-/* عنوان رنک */
 .rank-title {
   font-weight: 700;
   font-size: 1.8rem;
   margin-bottom: 0.3rem;
 }
 
-/* دکمه خرید داخل رنک */
 .buy-btn {
   display: inline-block;
   margin-top: 1rem;
@@ -154,7 +153,6 @@ body.dark .rank {
   background: #e64a19;
 }
 
-/* بخش کلیم */
 .claim-toggle {
   background: var(--accent);
   color: white;
@@ -210,7 +208,6 @@ body.dark .rank {
   transition: border-color 0.3s ease;
 }
 
-/* انیمیشن فریم RGB روی هاور کلیم‌ها */
 .claim-item:hover {
   animation: rgbBorder 3s linear infinite;
   border-width: 3px;
@@ -220,7 +217,6 @@ body.dark .claim-item {
   background: var(--card-dark);
 }
 
-/* اطلاعات داخل آیتم کلیم */
 .claim-info {
   margin-top: 0.7rem;
   opacity: 0;
@@ -249,4 +245,4 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   color: #777;
-}
+  }
