@@ -153,7 +153,7 @@ body.dark .rank {
 }
 
 .rank-title {
-  font-weight: 700;
+  font-weight: 900;
   font-size: 1.8rem;
   margin-bottom: 0.3rem;
   display: flex;
@@ -163,8 +163,8 @@ body.dark .rank {
 }
 
 .rank-icon {
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
 }
 
 .animated-icon {
