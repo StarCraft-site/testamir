@@ -4,145 +4,131 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StarCraft | سرور ماینکرفت</title>
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- فونت‌ها -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
-
-  <!-- استایل سفارشی -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- آیکن سایت -->
   <link rel="icon" href="images/fav.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
 </head>
-<body class="bg-gray-100 text-gray-900 transition-all duration-300 font-[Vazirmatn] dark:bg-gray-900 dark:text-gray-100">
-
-  <div class="max-w-4xl mx-auto px-4 py-6">
-    
-    <!-- هدر -->
-    <header class="flex justify-between items-center mb-6">
-      <div class="text-orange-500 text-2xl flex items-center gap-2">
-        ⭐ <span class="font-[Orbitron] text-xl">StarCraft</span>
-      </div>
-      <button id="themeToggle" class="bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-md">
-        🌓 تغییر تم
-      </button>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">⭐ <span class="logo-text">StarCraft</span></div>
+      <button id="themeToggle" title="تغییر تم صفحه">🌓 تغییر تم صفحه</button>
     </header>
 
-    <!-- معرفی -->
-    <section class="mb-8">
-      <h2 class="text-xl font-bold mb-2">🎮 به سرور ماینکرفت StarCraft خوش آمدید!</h2>
-      <p class="mb-4">
+    <section class="intro">
+      <h2>🎮 به سرور ماینکرفت StarCraft خوش آمدید!</h2>
+      <p>
         StarCraft یک سرور فعال، هیجان‌انگیز و دوستانه برای همه بازیکنان جاوا و بدراک است. از نسخه 1.8 به بالا در Java و از 1.21.50 به بالا در Bedrock پشتیبانی می‌شود.
       </p>
-      <div class="bg-white dark:bg-gray-800 p-4 rounded-lg mb-4 shadow">
+      <div class="ip-box">
         <p><strong>IP سرور:</strong> 212.80.8.73</p>
         <p><strong>نسخه:</strong> Java (1.8+) | Bedrock (1.21.50+)</p>
       </div>
-      <a href="https://t.me/Starcraft_MC" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition">ورود به کانال تلگرام</a>
+      <a href="https://t.me/Starcraft_MC" class="btn">ورود به کانال تلگرام</a>
     </section>
 
-    <!-- رنک‌ها -->
-    <section class="mb-8">
-      <h2 class="text-xl font-bold mb-4">💎 خرید رنک‌های سرور</h2>
-      <div class="flex flex-col gap-4">
-        <!-- MVP -->
-        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-lg transition">
-          <div class="flex items-center gap-2 text-lg font-bold mb-2">
+    <section class="ranks">
+      <h2>💎 خرید رنک‌های سرور</h2>
+      <div class="rank-grid">
+        <div class="rank">
+          <div class="rank-title">
             <span>MVP</span>
-            <img src="images/icon.png" alt="MVP Icon" class="w-7 h-7 animate-bounce" />
+            <img src="images/icon.png" alt="MVP Icon" class="rank-icon animated-icon" />
           </div>
-          <p>دسترسی به /fly و دریافت کیت مخصوص</p>
-          <a href="https://t.me/off_tor" class="inline-block bg-orange-500 hover:bg-orange-600 text-white mt-3 px-4 py-2 rounded">خرید</a>
+          <div class="rank-details">
+            <p>دسترسی به /fly و دریافت کیت مخصوص</p>
+            <a href="https://t.me/off_tor" class="buy-btn">خرید</a>
+          </div>
         </div>
-
-        <!-- VIP -->
-        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-lg transition">
-          <div class="flex items-center gap-2 text-lg font-bold mb-2">
+        <div class="rank">
+          <div class="rank-title">
             VIP
-            <img src="images/icon1.png" alt="VIP Icon" class="w-7 h-7 animate-bounce" />
+            <img src="images/icon1.png" alt="VIP Icon" class="rank-icon animated-icon" />
           </div>
-          <p>دسترسی به /home بیشتر و اولویت در صف</p>
-          <a href="https://t.me/off_tor" class="inline-block bg-orange-500 hover:bg-orange-600 text-white mt-3 px-4 py-2 rounded">خرید</a>
+          <div class="rank-details">
+            <p>دسترسی به /home بیشتر و اولویت در صف</p>
+            <a href="https://t.me/off_tor" class="buy-btn">خرید</a>
+          </div>
         </div>
-
-        <!-- ELITE -->
-        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-lg transition">
-          <div class="flex items-center gap-2 text-lg font-bold mb-2">
+        <div class="rank">
+          <div class="rank-title">
             ELITE
-            <img src="images/icon2.png" alt="ELITE Icon" class="w-7 h-7 animate-bounce" />
+            <img src="images/icon2.png" alt="ELITE Icon" class="rank-icon animated-icon" />
           </div>
-          <p>دسترسی به /nick و /hat و چت رنگی</p>
-          <a href="https://t.me/off_tor" class="inline-block bg-orange-500 hover:bg-orange-600 text-white mt-3 px-4 py-2 rounded">خرید</a>
+          <div class="rank-details">
+            <p>دسترسی به /nick و /hat و چت رنگی</p>
+            <a href="https://t.me/off_tor" class="buy-btn">خرید</a>
+          </div>
         </div>
-
-        <!-- LEGEND -->
-        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-lg transition">
-          <div class="flex items-center gap-2 text-lg font-bold mb-2">
+        <div class="rank">
+          <div class="rank-title">
             LEGEND
-            <img src="images/icon3.png" alt="LEGEND Icon" class="w-7 h-7 animate-bounce" />
+            <img src="images/icon3.png" alt="LEGEND Icon" class="rank-icon animated-icon" />
           </div>
-          <p>دسترسی کامل به تمام امکانات و تگ خاص در سرور</p>
-          <a href="https://t.me/off_tor" class="inline-block bg-orange-500 hover:bg-orange-600 text-white mt-3 px-4 py-2 rounded">خرید</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- کلیم بلاک -->
-    <section class="mb-8">
-      <div onclick="toggleClaim()" class="bg-orange-500 hover:bg-orange-600 text-white font-bold p-4 rounded-lg text-center cursor-pointer">
-        🧱 تعرفه فروش کلیم بلاک (کلیک کنید)
-      </div>
-      <div class="claim-details max-h-0 overflow-hidden opacity-0 transition-all duration-700 mt-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <!-- هر آیتم -->
-          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
-            <span class="font-bold block mb-2">1k ClaimBlock</span>
-            <div class="text-orange-500 font-bold mb-2">10,000 تومان</div>
-            <a href="https://t.me/off_tor" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">خرید</a>
-          </div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
-            <span class="font-bold block mb-2">5k ClaimBlock</span>
-            <div class="text-orange-500 font-bold mb-2">40,000 تومان</div>
-            <a href="https://t.me/off_tor" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">خرید</a>
-          </div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
-            <span class="font-bold block mb-2">10k ClaimBlock</span>
-            <div class="text-orange-500 font-bold mb-2">75,000 تومان</div>
-            <a href="https://t.me/off_tor" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">خرید</a>
-          </div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
-            <span class="font-bold block mb-2">20k ClaimBlock</span>
-            <div class="text-orange-500 font-bold mb-2">140,000 تومان</div>
-            <a href="https://t.me/off_tor" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">خرید</a>
-          </div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
-            <span class="font-bold block mb-2">30k ClaimBlock</span>
-            <div class="text-orange-500 font-bold mb-2">200,000 تومان</div>
-            <a href="https://t.me/off_tor" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">خرید</a>
-          </div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
-            <span class="font-bold block mb-2">50k ClaimBlock</span>
-            <div class="text-orange-500 font-bold mb-2">300,000 تومان</div>
-            <a href="https://t.me/off_tor" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">خرید</a>
+          <div class="rank-details">
+            <p>دسترسی کامل به تمام امکانات و تگ خاص در سرور</p>
+            <a href="https://t.me/off_tor" class="buy-btn">خرید</a>
           </div>
         </div>
       </div>
-      <p class="font-bold mt-6 text-center">جهت خرید، گزینه انتخابی خود را به همراه یوزرنیم به فروشنده زیر ارسال کنید.</p>
-      <div class="text-center mt-4">
-        <a href="https://t.me/off_tor" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded">پیام به فروشنده</a>
+
+      <div class="claim-toggle" onclick="toggleClaim()">🧱 تعرفه فروش کلیم بلاک (کلیک کنید)</div>
+      <div class="claim-details">
+        <div class="claim-grid">
+          <div class="claim-item">
+            <span>1k ClaimBlock</span>
+            <div class="claim-info">
+              <div class="price">10,000 تومان</div>
+              <a href="https://t.me/off_tor" class="buy-btn">خرید</a>
+            </div>
+          </div>
+          <div class="claim-item">
+            <span>5k ClaimBlock</span>
+            <div class="claim-info">
+              <div class="price">40,000 تومان</div>
+              <a href="https://t.me/off_tor" class="buy-btn">خرید</a>
+            </div>
+          </div>
+          <div class="claim-item">
+            <span>10k ClaimBlock</span>
+            <div class="claim-info">
+              <div class="price">75,000 تومان</div>
+              <a href="https://t.me/off_tor" class="buy-btn">خرید</a>
+            </div>
+          </div>
+          <div class="claim-item">
+            <span>20k ClaimBlock</span>
+            <div class="claim-info">
+              <div class="price">140,000 تومان</div>
+              <a href="https://t.me/off_tor" class="buy-btn">خرید</a>
+            </div>
+          </div>
+          <div class="claim-item">
+            <span>30k ClaimBlock</span>
+            <div class="claim-info">
+              <div class="price">200,000 تومان</div>
+              <a href="https://t.me/off_tor" class="buy-btn">خرید</a>
+            </div>
+          </div>
+          <div class="claim-item">
+            <span>50k ClaimBlock</span>
+            <div class="claim-info">
+              <div class="price">300,000 تومان</div>
+              <a href="https://t.me/off_tor" class="buy-btn">خرید</a>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <p class="buy-text">جهت خرید ، گزینه انتخابی خود را به همراه یوزرنیم به  " فروشنده "  که در پایین قرار دارد بفرستید.</p>
+      <a href="https://t.me/off_tor" class="btn">پیام به فروشنده</a>
     </section>
 
-    <!-- فوتر -->
-    <footer class="text-center text-gray-600 mt-10 text-sm">
+    <footer>
       © StarCraft 2025 | طراحی‌شده با ❤️
     </footer>
   </div>
 
-  <!-- اسکریپت -->
   <script src="script.js"></script>
 </body>
-                                                              </html>
+          </html>
