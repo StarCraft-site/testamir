@@ -93,12 +93,18 @@ body.dark .intro .ip-box {
   background: #e64a19;
 }
 
-/* تغییر ردیف‌بندی رنک‌ها به دو ستون */
+/* تغییر این قسمت برای چیدمان دو ستونه در دسکتاپ */
 .rank-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .rank-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .rank {
