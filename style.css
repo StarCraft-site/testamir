@@ -262,14 +262,9 @@ body.dark .claim-item {
 
 .claim-info {
   margin-top: 0.7rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.claim-item:hover .claim-info {
   opacity: 1;
   visibility: visible;
+  transition: none;
 }
 
 .price {
