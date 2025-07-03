@@ -148,7 +148,7 @@ body.dark .rank {
 }
 
 .rank:hover .rank-details {
-  max-height: 200px;
+  max-height: 500px;
   opacity: 1;
 }
 
